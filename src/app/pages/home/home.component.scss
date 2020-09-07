@@ -3,3 +3,13 @@
     height: 100%;
     margin-top: -640px;
 }
+
+#base {
+    position: fixed;
+    bottom: 15px;
+    right:15px;
+    border-radius: 30px;
+    padding:10px;
+    text-align: center;
+    z-index: 2;
+}

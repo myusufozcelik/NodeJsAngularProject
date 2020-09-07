@@ -85,7 +85,7 @@
   .form .input-group input:focus + label,
   .form .input-group input:valid + label {
     transform: translateY(-18px);
-    color: #ff652f;
+    color: rgb(202, 240, 240);
     font-size: .8rem;
   }
   .submit-btn {
@@ -103,6 +103,7 @@
   }
   .forgot-pw {
     color: inherit;
+    text-decoration: underline;
   }
   
   #forgot-pw {

@@ -1,0 +1,30 @@
+<body>
+<form [formGroup]="userForm" ngSubmit="add()">
+    <div class="container">
+        <div class="row">
+            <div class="col-25">
+                <label for="uname">User Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" autocomplete="off" autofocus="on" id="uname" name="username" placeholder="User name...">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="upass">User Password</label>
+            </div>
+            <div class="col-75">
+                <input type="text"  autocomplete="off" id="upass" name="userpassword" placeholder="User password...">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="submit"></label>
+            </div>
+            <div class="col-75">
+            <input type="submit" value="Submit">
+        </div>
+        </div>
+    </div>
+</form>
+</body>

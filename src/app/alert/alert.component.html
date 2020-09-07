@@ -1,0 +1,8 @@
+<div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 
+'alert-danger': message.type === 'error', 'alert-warning': message.type === 'warning', 
+'alert-info': message.type === 'info' }"
+    >
+    {{message.text}}
+    <span (click)="closeMessage()" style="float:right;cursor: pointer;">
+        <i class="fa fa-times" style="font-size:14px"></i></span>
+</div>
