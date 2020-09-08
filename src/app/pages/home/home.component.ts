@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import Layer from 'ol/layer/Layer';
 import { toStringHDMS } from 'ol/coordinate';
 import { toLonLat, fromLonLat } from 'ol/proj';
+import {GeoService} from '../../model/geo.service';
 
 @Component({
   selector: 'app-home',
@@ -16,49 +17,66 @@ import { toLonLat, fromLonLat } from 'ol/proj';
 })
 export class HomeComponent implements OnInit {
 
+  geolocation: Geolocation;
 
-
-  constructor(private authService: AuthService, private route: Router ) { }
+  // tslint:disable-next-line: typedef-whitespace
+  constructor(public geo: GeoService, private authService: AuthService, private route: Router ) { }
 
 
   ngOnInit(): void {
-    this.getMaps();
+    this.geolocation = navigator.geolocation;
   }
 
- getMaps(): void {
+  // tslint:disable-next-line: use-lifecycle-interface
+  ngAfterViewInit(): void {
+    this.geo.updateSize();
+  }
 
-  const container = document.getElementById('popup');
-  const content = document.getElementById('popup-content');
-  const closer = document.getElementById('popup-closer');
-
-  const overlay = new Overlay({
-    element: container,
-    autoPan: true,
-    autoPanAnimation: {
-      duration: 250
+  locate(): void {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(data => {
+        this.geo.setView(10, [data.coords.longitude, data.coords.latitude]);
+      });
     }
-  });
+  }
 
-  const map = new Map({
 
-    target: 'map',
-     layers: [
-       new TileLayer({
-         source: new OSM()
-       })
-     ],
-     overlays: [overlay],
-     view: new View({
-       center: fromLonLat([37.41, 8.82]),
-       zoom: 3,
-       maxZoom: 10
-     })
-   });
+
+
+//  getMaps(): void {
+
+//   const container = document.getElementById('popup');
+//   const content = document.getElementById('popup-content');
+//   const closer = document.getElementById('popup-closer');
+
+//   const overlay = new Overlay({
+//     element: container,
+//     autoPan: true,
+//     autoPanAnimation: {
+//       duration: 250
+//     }
+//   });
+
+//   const map = new Map({
+
+//     target: 'map',
+//      layers: [
+//        new TileLayer({
+//          source: new OSM()
+//        })
+//      ],
+//      overlays: [overlay],
+//      view: new View({
+//        center: fromLonLat([37.41, 8.82]),
+//        zoom: 3,
+//        maxZoom: 10
+//      })
+//    });
   //  map.on('singleclick',function(evt) {
   //    const coordinate = evt.coordinate;
   //     const hdms = toStringHDMS(toLonLat(coordinate));
   //   content.innerHTML = '<p>Current coordinates are :</p> <code>'+ hdms + '</code>';  
   // overlay.setPosition(coordinate); })
- }
+
 
 }

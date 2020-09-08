@@ -124,6 +124,46 @@
           }
         }
       }
+    },
+    "angular-openlayers-III": {
+      "projectType": "library",
+      "root": "projects/angular-openlayers-iii",
+      "sourceRoot": "projects/angular-openlayers-iii/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angular-openlayers-iii/tsconfig.lib.json",
+            "project": "projects/angular-openlayers-iii/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-openlayers-iii/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-openlayers-iii/src/test.ts",
+            "tsConfig": "projects/angular-openlayers-iii/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-openlayers-iii/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-openlayers-iii/tsconfig.lib.json",
+              "projects/angular-openlayers-iii/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "frontend",

@@ -12,6 +12,12 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/angular-openlayers-iii/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/angular-openlayers-iii/tsconfig.spec.json"
     }
 ]
 }

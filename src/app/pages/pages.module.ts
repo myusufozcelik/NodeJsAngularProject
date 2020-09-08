@@ -14,11 +14,12 @@ import { UserLoginGuard } from './user-login/user-login.guard';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { AlertComponent } from '../alert/alert.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BaselayerComponent } from './baselayer/baselayer.component';
 
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, HomeComponent,
-    UserLoginComponent, MainLayoutComponent, UserRegisterComponent, AlertComponent],
+    UserLoginComponent, MainLayoutComponent, UserRegisterComponent, AlertComponent, BaselayerComponent],
   imports: [
     CommonModule,
     BrowserModule,

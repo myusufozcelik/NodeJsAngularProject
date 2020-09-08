@@ -13,12 +13,19 @@ export class UserLoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private route: Router,
               private alertService: AlertService) { }
-  rout: boolean;
   loginUser: any = {};
 
   ngOnInit(): void {
-    this.rout = this.authService.isLoggedIn();
-    this.authService.isAuthenticated ? this.route.navigate(['/']) : this.route.navigate(['/login']);
+    this.routeProcess();
+  }
+
+  routeProcess(): void {
+    if (this.authService.isAuthenticated) {
+       this.route.navigate(['/']);
+    }
+    else {
+     this.route.navigate(['login']);
+    }
   }
 
   login(loginUser): any {

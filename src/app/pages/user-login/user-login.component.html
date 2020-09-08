@@ -1,26 +1,32 @@
 <body>
-<div class="login-wrapper">
-  <form action="" class="form">
-    <img src="https://lh3.googleusercontent.com/proxy/JkRUqaE8XHOihcf6JYrx7pAHPwAf15YPncg4xzeNpLbW22PfnFtlv0WK42sdwGB9NIIb4X4ev4q9xBhuwCGUH_MLJ4H7pVIAL9cY_d7aI_2-nwgu2E-DuXU9QOBZzKKQPgk0xejW17CJgcl9Tra4EA" alt="">
-    <h2> GİRİŞ YAP</h2>
-    <div class="input-group">
-      <input type="text" [(ngModel)]="loginUser.user_name" autofocus="on" autocomplete="off" name="loginUser" id="loginUser" required>
-      <label for="loginUser">User Name</label>
+  <div class="login-wrapper">
+    <form action="" class="form">
+      <img
+        src="https://lh3.googleusercontent.com/proxy/JkRUqaE8XHOihcf6JYrx7pAHPwAf15YPncg4xzeNpLbW22PfnFtlv0WK42sdwGB9NIIb4X4ev4q9xBhuwCGUH_MLJ4H7pVIAL9cY_d7aI_2-nwgu2E-DuXU9QOBZzKKQPgk0xejW17CJgcl9Tra4EA"
+        alt="">
+      <h2> GİRİŞ YAP</h2>
+      <div class="input-group">
+        <input type="text" [(ngModel)]="loginUser.user_name" autofocus="on" autocomplete="off" name="loginUser"
+          id="loginUser" required>
+        <label for="loginUser">User Name</label>
+      </div>
+      <div class="input-group">
+        <input type="password" [(ngModel)]="loginUser.user_password" autocomplete="off" name="loginPassword"
+          id="loginPassword" required>
+        <label for="loginPassword">Password</label>
+      </div>
+
+
+      <input type="submit" (click)="login(loginUser)" value="Login" class="submit-btn">
+
+      <a routerLink="/login" class="forgot-pw">Forgot Password?</a>
+
+    </form>
+
+    <div class="alert">
+      <app-alert></app-alert>
     </div>
-    <div class="input-group">
-      <input type="password" [(ngModel)]="loginUser.user_password"  autocomplete="off" name="loginPassword" id="loginPassword" required>
-      <label for="loginPassword">Password</label>
-    </div>
-    
-    
-    <input type="submit" (click)="login(loginUser)"  value="Login" class="submit-btn">
-    
-    <a routerLink ="/login" class="forgot-pw">Forgot Password?</a>
-
-      
-    
-  </form>
 
 
-</div>
+  </div>
 </body>

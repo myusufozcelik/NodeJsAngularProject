@@ -51,6 +51,7 @@ html, body {
     left: 0;
     width: 250px;
     margin-top: 60px;
+    display: inline-block;
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
     background-color: rgb(59, 122, 130);
