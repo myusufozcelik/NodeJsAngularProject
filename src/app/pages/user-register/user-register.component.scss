@@ -1,5 +1,15 @@
 
 
+.alert {
+  position: fixed;
+  bottom: -20px;
+  right:15px;
+  border-radius: 30px;
+  padding:10px;
+  text-align: center;
+  z-index: 2;
+  }
+
 
 
 
@@ -16,8 +26,9 @@ input[type=text], select, textarea {
     padding: 12px 12px 12px 0;
     display: inline-block;
   }
-  
-  input[type=submit] {
+
+  button {
+
     background-color: #4CAF50;
     color: white;
     width: 100%;
@@ -26,12 +37,12 @@ input[type=text], select, textarea {
     border-radius: 4px;
     cursor: pointer;
     float: right;
+      :hover {
+        background-color: #45a049;
+      }
   }
-  
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  
+ 
+
   .container {
     border-radius: 5px;
     background-color: #f2f2f2;

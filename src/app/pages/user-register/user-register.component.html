@@ -1,12 +1,16 @@
 <body>
-<form [formGroup]="userForm" ngSubmit="add()">
+<form [formGroup]="userForm" (ngSubmit) ="add()">
     <div class="container">
         <div class="row">
             <div class="col-25">
                 <label for="uname">User Name</label>
             </div>
             <div class="col-75">
-                <input type="text" autocomplete="off" autofocus="on" id="uname" name="username" placeholder="User name...">
+                <input type="text" formControlName="user_name" autocomplete="off" autofocus="on" id="uname" name="username" placeholder="User name...">
+                <div class="alert" *ngIf="userForm.get('user_name').hasError('required') && userForm.get('user_name').dirty">
+                    {{getErrorMessage()}}
+                    <app-alert></app-alert>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -14,7 +18,11 @@
                 <label for="upass">User Password</label>
             </div>
             <div class="col-75">
-                <input type="text"  autocomplete="off" id="upass" name="userpassword" placeholder="User password...">
+                <input type="text" formControlName="user_password"  autocomplete="off" id="upass" name="userpassword" placeholder="User password...">
+                <div class="alert" *ngIf="userForm.get('user_password').hasError('required') && userForm.get('user_password').dirty">
+                    {{getErrorMessage()}}
+                    <app-alert></app-alert>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -22,9 +30,17 @@
                 <label for="submit"></label>
             </div>
             <div class="col-75">
-            <input type="submit" value="Submit">
+            <button type="submit" value="Submit">Save</button>
+            <div class="alert">
+                {{getSuccessMessage()}}
+            <app-alert></app-alert> 
+        </div>
         </div>
         </div>
     </div>
 </form>
+
+<!-- <div class="alert">
+    <app-alert></app-alert>
+  </div> -->
 </body>

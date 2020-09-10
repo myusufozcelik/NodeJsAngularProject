@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import {LoginUser} from '../model/loginUser';
+import { ObservableLike, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +26,17 @@ export class AuthService {
       this.loggedIn = true;
       // tslint:disable-next-line: no-string-literal
       this.saveToken(data['token']);
+     
     });
 
   }
+
+  // tslint:disable-next-line: typedef
+  create(loginUser: LoginUser): Observable<LoginUser> {
+    console.log('Buraya da geldi');
+    return this.http.post<LoginUser>(`${this.path}/register`, loginUser);
+  }
+
 
   // tslint:disable-next-line: typedef
   saveToken(token) {
