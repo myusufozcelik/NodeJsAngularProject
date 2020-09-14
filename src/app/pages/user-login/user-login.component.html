@@ -21,6 +21,8 @@
       <a routerLink="/login" class="forgot-pw">Forgot Password?</a>
 
     </form>
-
+    <div *ngIf="!check" class="alert">
+        <app-alert></app-alert>
+    </div>
   </div>
 </body>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { HttpResponse } from '@angular/common/http';
@@ -8,15 +8,22 @@ import { AlertService } from 'src/app/services/alert.service';
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.scss']
 })
-export class UserLoginComponent implements OnInit {
+export class UserLoginComponent implements OnInit, OnDestroy {
 
-
+  check = false;
   constructor(private authService: AuthService, private route: Router,
               private alertService: AlertService) { }
+ 
   loginUser: any = {};
 
   ngOnInit(): void {
     this.routeProcess();
+  }
+
+  ngOnDestroy(): void {
+    this.check = true;
+    this.getSuccessMessage();
+    alert("Ana sayfaya yönlendiriliyorsunuz")
   }
 
   routeProcess(): void {
